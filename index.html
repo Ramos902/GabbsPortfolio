@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gabriel Rodrigues · Team Gabbs | Consultoria & Treino Científico</title>
+<meta name="description" content="Apresentação oficial de Gabriel Rodrigues (@gabbsgym) - Team Gabbs. Consultoria online de musculação, nutrição científica e calculadora de macronutrientes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0d0d0d;
+  --card: #181818;
+  --card-hover: #202020;
+  --line: #2a2a2a;
+  --tx: #f4f1e8;
+  --mut: #a39f90;
+  --ac: #fd9d05;
+  --ac-glow: rgba(253, 157, 5, 0.32);
+  --acx: #111;
+  --chip: #222;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+:root[data-theme="light"] {
+  --bg: #faf7ec;
+  --card: #fff;
+  --card-hover: #f7f3e6;
+  --line: #e6e0cc;
+  --tx: #17150f;
+  --mut: #6d6858;
+  --ac: #e88a00;
+  --ac-glow: rgba(232, 138, 0, 0.28);
+  --acx: #111;
+  --chip: #f1ecd9;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #faf7ec;
+    --card: #fff;
+    --card-hover: #f7f3e6;
+    --line: #e6e0cc;
+    --tx: #17150f;
+    --mut: #6d6858;
+    --ac: #e88a00;
+    --ac-glow: rgba(232, 138, 0, 0.28);
+    --acx: #111;
+    --chip: #f1ecd9;
+  }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  scroll-snap-type: y mandatory;
+}
+body {
+  background: var(--bg);
+  color: var(--tx);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   HERO / SEÇÃO PRINCIPAL (100vh com apresentação do Gabriel)
+   ========================================================= */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at 75% 30%, rgba(253, 157, 5, 0.08) 0%, transparent 48%),
+              radial-gradient(circle at 15% 85%, rgba(253, 157, 5, 0.05) 0%, transparent 45%),
+              var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 24px 28px;
+  overflow: hidden;
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(340px, 520px) 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Coluna Esquerda: Apresentação & Links estilo Linktree */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Foto circular de perfil (Exibida no Mobile estilo Linktree) */
+.mobile-avatar-wrap {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.mobile-avatar {
+  width: clamp(76px, 11vh, 96px);
+  height: clamp(76px, 11vh, 96px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(253, 157, 5, 0.6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55), 0 0 22px rgba(253, 157, 5, 0.2);
+  display: block;
+}
+
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-title-line {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.hero-title {
+  font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  font-size: clamp(38px, 4.4vw, 56px);
+  font-weight: 800;
+  line-height: .96;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--tx);
+  margin: 0;
+}
+
+.hero-title span {
+  color: var(--ac);
+}
+
+.hero-handle {
+  color: var(--tx);
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 1px;
+}
+
+.verified-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--ac);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.hero-bio {
+  font-size: 14px;
+  color: var(--mut);
+  line-height: 1.42;
+  max-width: 480px;
+  margin: 0;
+}
+
+/* Botões enxutos e centralizados estilo Linktree */
+.tree-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.tree-btn {
+  display: grid;
+  grid-template-columns: 40px 1fr 40px;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  min-height: 54px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  color: var(--tx);
+  text-decoration: none;
+  transition: all .2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.tree-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(253, 157, 5, 0.08), transparent);
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.tree-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--ac);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 16px var(--ac-glow);
+  color: var(--tx);
+}
+
+.tree-btn:hover::before {
+  opacity: 1;
+}
+
+.tree-btn.featured {
+  border-color: rgba(253, 157, 5, 0.65);
+  background: linear-gradient(135deg, rgba(253, 157, 5, 0.16), var(--card) 55%);
+  box-shadow: 0 6px 20px rgba(253, 157, 5, 0.12);
+}
+
+.tree-btn.featured:hover {
+  border-color: var(--ac);
+  box-shadow: 0 8px 28px rgba(253, 157, 5, 0.28);
+}
+
+.tree-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--chip);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ac);
+  flex-shrink: 0;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.tree-btn:hover .tree-icon {
+  transform: scale(1.06);
+}
+
+.tree-icon.consultoria {
+  background: rgba(253, 157, 5, 0.18);
+  color: var(--ac);
+  border-color: rgba(253, 157, 5, 0.5);
+}
+
+.tree-icon.wa {
+  background: rgba(37, 211, 102, 0.14);
+  color: #25d366;
+  border-color: rgba(37, 211, 102, 0.35);
+}
+
+.tree-icon.yt {
+  background: rgba(255, 0, 0, 0.14);
+  color: #ff3333;
+  border-color: rgba(255, 0, 0, 0.35);
+}
+
+.tree-icon.ig {
+  background: rgba(225, 48, 108, 0.14);
+  color: #f0658f;
+  border-color: rgba(225, 48, 108, 0.35);
+}
+
+.tree-icon.tiktok {
+  background: rgba(0, 242, 234, 0.14);
+  color: #00f2fe;
+  border-color: rgba(0, 242, 234, 0.35);
+}
+
+.tree-icon.olway {
+  background: rgba(180, 140, 255, 0.14);
+  color: #c49eff;
+  border-color: rgba(180, 140, 255, 0.35);
+}
+
+.tree-icon.calc {
+  background: rgba(253, 157, 5, 0.14);
+  color: var(--ac);
+  border-color: rgba(253, 157, 5, 0.4);
+}
+
+.tree-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.tree-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  min-width: 0;
+  padding: 0 4px;
+}
+
+.tree-title {
+  font-family: "Barlow", "Segoe UI", system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  line-height: 1.25;
+  color: var(--tx);
+  text-align: left;
+}
+
+.tree-arrow {
+  width: 40px;
+  height: 40px;
+  color: var(--mut);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease, color .2s ease;
+}
+
+.tree-btn:hover .tree-arrow {
+  transform: translateX(3px);
+  color: var(--ac);
+}
+
+.tree-arrow.down {
+  transform: rotate(90deg);
+}
+
+.tree-btn:hover .tree-arrow.down {
+  transform: rotate(90deg) translateX(3px);
+}
+
+/* =========================================================================
+   COLUNA DIREITA: GABRIEL SEM FUNDO COM BRILHO CIRCULAR ANIMADO (DESKTOP)
+   ========================================================================= */
+.hero-image-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.hero-image-stage {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Animação amarela circular que desaparece gradualmente em um círculo suave */
+.glitch-circle-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(340px, 42vw, 560px);
+  height: clamp(340px, 42vw, 560px);
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    rgba(253, 157, 5, 0.38) 0%, 
+    rgba(253, 157, 5, 0.22) 32%, 
+    rgba(253, 157, 5, 0.08) 58%, 
+    rgba(253, 157, 5, 0.02) 80%, 
+    transparent 100%
+  );
+  filter: blur(55px);
+  z-index: 1;
+  pointer-events: none;
+  animation: yellow-circle-pulse 3.6s infinite ease-in-out;
+}
+
+@keyframes yellow-circle-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0.85;
+    filter: blur(55px);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.10);
+    opacity: 1;
+    filter: blur(68px);
+  }
+}
+
+/* Imagem responsiva horizontalmente e centralizada verticalmente */
+.glitch-actor {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 82vh;
+  max-height: 82dvh;
+  object-fit: contain;
+  display: block;
+  z-index: 2;
+  filter: none;
+  -webkit-mask-image: linear-gradient(to bottom, black 58%, rgba(0, 0, 0, 0.88) 72%, rgba(0, 0, 0, 0.4) 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 58%, rgba(0, 0, 0, 0.88) 72%, rgba(0, 0, 0, 0.4) 86%, transparent 100%);
+  transition: transform .3s ease;
+}
+
+.hero-image-stage:hover .glitch-actor {
+  transform: scale(1.02);
+}
+
+/* =========================================================
+   REGRAS DE RESPONSIVIDADE (Desktop dividido x Mobile sem foto)
+   ========================================================= */
+@media (min-width: 901px) {
+  .hero {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+}
+
+/* MOBILE (< 900px): ESTILO LINKTREE CENTRALIZADO EM 100VH/100DVH */
+@media (max-width: 900px) {
+  .hero {
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    min-height: 0 !important;
+    padding: clamp(22px, 4vh, 40px) clamp(18px, 5vw, 26px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    box-sizing: border-box;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 0;
+    width: 100%;
+    max-width: 420px;
+    height: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  /* OBRIGATÓRIO: Ocultar imagem grande lateral no mobile */
+  .hero-image-col {
+    display: none !important;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 2vh, 18px);
+    box-sizing: border-box;
+  }
+
+  .mobile-avatar-wrap {
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  .mobile-avatar {
+    width: clamp(72px, 10.5vh, 92px);
+    height: clamp(72px, 10.5vh, 92px);
+  }
+
+  .hero-header {
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    width: 100%;
+  }
+
+  .hero-title-line {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .hero-title {
+    font-size: clamp(28px, 7.2vw, 36px);
+    line-height: 1.02;
+    text-align: center;
+  }
+
+  .hero-handle {
+    font-size: 14px;
+    color: var(--mut);
+  }
+
+  .hero-bio {
+    display: none;
+  }
+
+  .tree-links {
+    gap: clamp(7px, 1.2vh, 10px);
+    width: 100%;
+  }
+
+  .tree-btn {
+    padding: clamp(7px, 1.15vh, 10px) 12px;
+    min-height: clamp(46px, 6.4vh, 54px);
+    gap: 8px;
+    grid-template-columns: 36px 1fr 36px;
+    border-radius: 13px;
+  }
+
+  .tree-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+  }
+
+  .tree-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .tree-text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .tree-title {
+    font-size: clamp(14.5px, 3.9vw, 16px);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .tree-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .tree-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Telas mobile mais baixas (ex: iPhone SE / navegadores com barra grande) */
+@media (max-width: 900px) and (max-height: 700px) {
+  .hero {
+    padding: 14px 16px !important;
+  }
+  .hero-content {
+    gap: 8px;
+  }
+  .mobile-avatar {
+    width: 62px;
+    height: 62px;
+  }
+  .hero-title {
+    font-size: 25px;
+  }
+  .tree-links {
+    gap: 6px;
+  }
+  .tree-btn {
+    min-height: 42px;
+    padding: 5px 10px;
+    grid-template-columns: 32px 1fr 32px;
+  }
+  .tree-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .tree-title {
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   SEÇÃO 2: APP LAUNCHER DE FERRAMENTAS GRATUITAS (100VH)
+   ========================================================= */
+.tools-sec {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at 50% 12%, rgba(253, 157, 5, 0.08) 0%, transparent 55%),
+              radial-gradient(circle at 15% 85%, rgba(253, 157, 5, 0.04) 0%, transparent 45%),
+              #0f0f0f;
+  border-bottom: 1px solid var(--line);
+  padding: clamp(24px, 4.5vh, 44px) clamp(20px, 4vw, 36px);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.tools-inner {
+  width: 100%;
+  max-width: 860px;
+  height: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(16px, 2.8vh, 26px);
+  box-sizing: border-box;
+}
+
+/* Cabeçalho minimalista e refinado */
+.tools-header {
+  text-align: center;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.tools-logo-badge {
+  height: clamp(34px, 5.5vh, 46px);
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 2px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+}
+
+.tools-title {
+  font-family: "Barlow Condensed", "Arial Narrow", Impact, sans-serif;
+  font-size: clamp(32px, 4.8vw, 48px);
+  font-weight: 800;
+  line-height: .98;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--tx);
+  margin: 0;
+}
+
+.tools-title span {
+  color: var(--ac);
+}
+
+.tools-sub {
+  font-size: clamp(13px, 2.4vw, 15px);
+  color: var(--mut);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Lista / Grid de Aplicativos Desktop (Justo e organizado) */
+.tools-launcher-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.app-tile {
+  background: linear-gradient(90deg, #181818 0%, #141414 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 20px;
+  min-height: 72px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  text-decoration: none;
+  color: var(--tx);
+  gap: 16px;
+  transition: all .22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.app-tile::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--ac);
+  opacity: 0;
+  transition: opacity .22s ease;
+}
+
+.app-tile:hover {
+  transform: translateX(4px);
+  border-color: rgba(253, 157, 5, 0.65);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(253, 157, 5, 0.14);
+  background: linear-gradient(90deg, #202020 0%, #171717 100%);
+}
+
+.app-tile:hover::before {
+  opacity: 1;
+}
+
+/* Ícone do App */
+.app-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(253, 157, 5, 0.2), rgba(253, 157, 5, 0.05));
+  border: 1px solid rgba(253, 157, 5, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ac);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform .2s ease;
+}
+
+.app-tile:hover .app-icon {
+  transform: scale(1.06);
+}
+
+.app-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.app-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.app-title {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: var(--tx);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.app-desc {
+  font-size: 13px;
+  color: var(--mut);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Botão de Ação do App */
+.app-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: var(--chip);
+  border: 1px solid var(--line);
+  color: var(--tx);
+  font: 700 13px/1 "Barlow Condensed", sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all .2s ease;
+}
+
+.app-tile:hover .app-action-btn {
+  background: var(--ac);
+  border-color: var(--ac);
+  color: #111;
+  box-shadow: 0 4px 14px rgba(253, 157, 5, 0.35);
+}
+
+.app-action-btn svg {
+  width: 14px;
+  height: 14px;
+  transition: transform .2s ease;
+}
+
+.app-tile:hover .app-action-btn svg {
+  transform: translateX(3px);
+}
+
+/* Faixa Inferior de Contato / Mentoria */
+.tools-footer-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  max-width: 780px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.tools-footer-text {
+  font-size: clamp(12.5px, 2.2vw, 13.5px);
+  color: var(--mut);
+}
+
+.tools-footer-text strong {
+  color: var(--tx);
+}
+
+.tools-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--ac);
+  color: #111;
+  font: 700 13px "Barlow Condensed", sans-serif;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: all .2s ease;
+}
+
+.tools-footer-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+/* Responsividade Mobile da Seção de Ferramentas (100vh rígido) */
+@media (max-width: 900px) {
+  .tools-sec {
+    padding: clamp(16px, 3vh, 24px) 16px !important;
+  }
+
+  .tools-inner {
+    max-width: 440px;
+    justify-content: center;
+    gap: clamp(14px, 2.2vh, 20px);
+  }
+
+  .tools-header {
+    gap: 4px;
+    flex: 0 0 auto;
+  }
+
+  .tools-logo-badge {
+    height: clamp(26px, 4.2vh, 34px);
+  }
+
+  .tools-title {
+    font-size: clamp(24px, 6.2vw, 30px);
+  }
+
+  .tools-sub {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .tools-launcher-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  /* Cards justos verticalmente com altura mínima bem compacta */
+  .app-tile {
+    flex-direction: row;
+    padding: 10px 14px;
+    min-height: 58px;
+    max-height: 64px;
+    border-radius: 14px;
+    gap: 12px;
+    text-align: left;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .app-tile::before {
+    display: none;
+  }
+
+  .app-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .app-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .app-meta {
+    align-items: flex-start;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .app-pill {
+    font-size: 9px;
+    padding: 1.5px 6px;
+    line-height: 1;
+  }
+
+  .app-title {
+    font-size: 15px;
+    line-height: 1.15;
+  }
+
+  .app-desc {
+    display: none;
+  }
+
+  .app-action-btn {
+    width: 34px;
+    height: 34px;
+    max-width: 34px;
+    padding: 0;
+    border-radius: 9px;
+    flex-shrink: 0;
+  }
+
+  .app-action-btn span {
+    display: none;
+  }
+
+  .app-action-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .tools-footer-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+    padding: 9px 14px;
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .tools-footer-text {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .tools-footer-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}
+
+/* =========================================================
+   RODAPÉ DA PÁGINA (+- 20vh)
+   ========================================================= */
+.site-footer {
+  min-height: 20vh;
+  scroll-snap-align: end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 32px 16px;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+  box-sizing: border-box;
+  gap: 12px;
+}
+
+.site-footer-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.site-footer-social {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  color: var(--mut);
+  text-decoration: none;
+  transition: all .2s ease;
+}
+
+.site-footer-social a:hover {
+  border-color: var(--ac);
+  color: var(--ac);
+  transform: translateY(-2px);
+}
+
+.site-footer-social svg {
+  width: 18px;
+  height: 18px;
+}
+
+.site-footer-copy {
+  color: var(--mut);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.site-footer-copy a {
+  color: var(--ac);
+  text-decoration: none;
+}
+
+.site-footer-copy a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+     PRIMEIRA SEÇÃO: APRESENTAÇÃO GABRIEL RODRIGUES (100VH)
+     ========================================================= -->
+<section class="hero" id="apresentacao">
+  <div class="hero-inner">
+
+    <!-- Coluna Esquerda: Apresentação e Links Linktree -->
+    <div class="hero-content">
+
+      <!-- Foto circular de perfil (Exibida no Mobile igual ao Linktree) -->
+      <div class="mobile-avatar-wrap">
+        <img src="gabriel-avatar.webp" alt="Gabriel Rodrigues" class="mobile-avatar" loading="eager" decoding="async">
+      </div>
+      
+      <!-- Título & Identidade -->
+      <div class="hero-header">
+        <div class="hero-title-line">
+          <h1 class="hero-title">Gabriel <span>Rodrigues</span></h1>
+          <span class="hero-handle">
+            @gabbsgym
+            <svg class="verified-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </span>
+        </div>
+        <p class="hero-bio">
+          Treinamento físico, musculação e nutrição com embasamento científico para máxima evolução estética.
+        </p>
+      </div>
+
+      <!-- Botões Enxutos e Centralizados estilo Linktree (Ordem: Consultoria -> Redes Sociais -> Parcerias -> Extras) -->
+      <div class="tree-links" role="navigation" aria-label="Links principais do Gabriel">
+
+        <!-- 1. Consultoria Online -->
+        <a class="tree-btn featured" href="https://form.jotform.com/261745200985056" target="_blank" rel="noopener noreferrer">
+          <div class="tree-icon consultoria">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          </div>
+          <div class="tree-text">
+            <span class="tree-title">Consultoria Online | Pré-seleção</span>
+          </div>
+          <div class="tree-arrow">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </a>
+
+        <!-- 2. WhatsApp Direto -->
+        <a class="tree-btn" href="https://wa.me/?text=Ol%C3%A1%20Gabriel!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20consultoria." target="_blank" rel="noopener noreferrer">
+          <div class="tree-icon wa">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </div>
+          <div class="tree-text">
+            <span class="tree-title">Fale Comigo no WhatsApp</span>
+          </div>
+          <div class="tree-arrow">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </a>
+
+        <!-- 3. Instagram -->
+        <a class="tree-btn" href="https://www.instagram.com/gabbsgym/" target="_blank" rel="noopener noreferrer">
+          <div class="tree-icon ig">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="tree-text">
+            <span class="tree-title">Instagram @gabbsgym</span>
+          </div>
+          <div class="tree-arrow">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </a>
+
+        <!-- 4. Canal no YouTube -->
+        <a class="tree-btn" href="https://www.youtube.com/@gabbsgym" target="_blank" rel="noopener noreferrer">
+          <div class="tree-icon yt">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </div>
+          <div class="tree-text">
+            <span class="tree-title">Canal no YouTube</span>
+          </div>
+          <div class="tree-arrow">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </a>
+
+        <!-- 5. TikTok -->
+        <a class="tree-btn" href="https://tiktok.com/@gabbsgym" target="_blank" rel="noopener noreferrer">
+          <div class="tree-icon tiktok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.59-.98-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.77 1.81-.03 3.32-1.47 3.43-3.28.09-1.83.04-3.67.04-5.5V.02h-.23z"/></svg>
+          </div>
+          <div class="tree-text">
+            <span class="tree-title">TikTok @gabbsgym</span>
+          </div>
+          <div class="tree-arrow">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </a>
+
+        <!-- 6. OLWAY Cupom GABBS -->
+        <a class="tree-btn" href="https://olway.com.br/" target="_blank" rel="noopener noreferrer">
+          <div class="tree-icon olway">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          </div>
+          <div class="tree-text">
+            <span class="tree-title">OLWAY | Cupom: "GABBS"</span>
+          </div>
+          <div class="tree-arrow">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </a>
+
+        <!-- 7. Ferramentas Gratuitas (Âncora para a Seção 2) -->
+        <a class="tree-btn" href="#ferramentas">
+          <div class="tree-icon calc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+          </div>
+          <div class="tree-text">
+            <span class="tree-title">Ferramentas Gratuitas</span>
+          </div>
+          <div class="tree-arrow down">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- Coluna Direita: Imagem sem fundo (DESKTOP ONLY, OCULTADA NO MOBILE) -->
+    <div class="hero-image-col">
+      <div class="hero-image-stage" id="glitch-trigger" title="Gabriel Rodrigues - Team Gabbs">
+        <!-- Animação amarela circular que desaparece gradualmente -->
+        <div class="glitch-circle-glow"></div>
+
+        <!-- Gabriel sem fundo -->
+        <img id="gabriel-stage-img" src="gabriel-glitch-loop.webp" alt="Gabriel Rodrigues - Team Gabbs" class="glitch-actor" loading="eager" decoding="async">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SEÇÃO 2: APP LAUNCHER DE FERRAMENTAS GRATUITAS (100VH)
+     ========================================================= -->
+<section class="tools-sec" id="ferramentas">
+  <div class="tools-inner">
+    
+    <!-- Cabeçalho com Logo Team Gabbs -->
+    <div class="tools-header">
+      <img src="logo.png" alt="Team Gabbs" class="tools-logo-badge">
+      <h2 class="tools-title">Ferramentas <span>Gratuitas</span></h2>
+      <p class="tools-sub">Aplicativos e calculadoras científicas para otimizar sua evolução física diária.</p>
+    </div>
+
+    <!-- Launcher Grid estilo App Store -->
+    <div class="tools-launcher-grid">
+
+      <!-- App 1: Macronutrientes -->
+      <a class="app-tile" href="calculadora-macronutrientes.html">
+        <div class="app-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+        </div>
+        <div class="app-meta">
+          <h3 class="app-title">Troca de Macros</h3>
+          <p class="app-desc">Equivalência precisa de carbo e proteína entre alimentos.</p>
+        </div>
+        <div class="app-action-btn">
+          <span>Abrir App</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </a>
+
+      <!-- App 2: IMC Corporal -->
+      <a class="app-tile" href="calculadora-imc.html">
+        <div class="app-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+        </div>
+        <div class="app-meta">
+          <h3 class="app-title">IMC Muscular</h3>
+          <p class="app-desc">Análise de composição e classificação para quem treina.</p>
+        </div>
+        <div class="app-action-btn">
+          <span>Abrir App</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </a>
+
+      <!-- App 3: Gasto Calórico TDEE -->
+      <a class="app-tile" href="calculadora-gasto-calorico.html">
+        <div class="app-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <div class="app-meta">
+          <h3 class="app-title">Gasto Calórico</h3>
+          <p class="app-desc">Cálculo de TMB e calorias para cutting ou bulking.</p>
+        </div>
+        <div class="app-action-btn">
+          <span>Abrir App</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Faixa Inferior de Contato / Mentoria -->
+    <div class="tools-footer-banner">
+      <div class="tools-footer-text">
+        <strong>Quer uma mentoria 100% individualizada?</strong> Treino e dieta ajustados toda semana.
+      </div>
+      <a class="tools-footer-btn" href="https://form.jotform.com/261745200985056" target="_blank" rel="noopener noreferrer">
+        Pré-Seleção Consultoria →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     RODAPÉ DA PÁGINA (+- 20VH)
+     ========================================================= -->
+<footer class="site-footer">
+  <img src="logo.png" alt="Team Gabbs" class="site-footer-logo">
+  <div class="site-footer-social">
+    <a href="https://www.instagram.com/gabbsgym/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@gabbsgym" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+    </a>
+    <a href="https://tiktok.com/@gabbsgym" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.59-.98-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.5 2.77 1.81-.03 3.32-1.47 3.43-3.28.09-1.83.04-3.67.04-5.5V.02h-.23z"/></svg>
+    </a>
+    <a href="https://wa.me/?text=Ol%C3%A1%20Gabriel!%20Vim%20pelo%20site." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+  </div>
+  <p class="site-footer-copy">
+    Team Gabbs · Gabriel Rodrigues (@gabbsgym). Todos os direitos reservados.<br>
+    <a href="#apresentacao">Voltar ao topo ↑</a>
+  </p>
+</footer>
+
+</body>
+</html>
